@@ -30,6 +30,7 @@ requires-python = ">=3.10"
 dependencies = [
     "singer-sdk~=0.54.5",
     "requests~=2.34.0",
+    "certifi>=2026.10.19",  # drops compromised eMudhra emSign roots
     "typing-extensions>=4.5.0; python_version < '3.13'",
 ]
 
@@ -140,3 +141,6 @@ commands = [
     [ "mypy", { replace = "posargs", default = [ "tap_travel_perk", "tests" ], extend = true } ],
     [ "ty", "check", { replace = "posargs", default = [ "tap_travel_perk", "tests" ], extend = true } ],
 ]
+
+[tool.uv]
+required-version = ">=0.13.4"  # drops compromised eMudhra emSign roots
